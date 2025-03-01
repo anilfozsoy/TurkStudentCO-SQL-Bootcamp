@@ -1,0 +1,47 @@
+a. Belirli Kolonları Seçme
+
+SELECT FirstName, LastName, Salary
+FROM Employees;
+
+Bu sorgu, çalışanların sadece FirstName (Adı), LastName (Soyadı) ve Salary (Maaşı) bilgilerini getirir. Geriye tüm tabloyu değil, yalnızca belirtilen sütunları döndürür.
+
+-------------------------------------------------------------------------------------
+
+b. DISTINCT Komutu ile Tekrarları Önleme
+
+SELECT DISTINCT departmentid
+FROM Employees;
+
+Bu sorgu, çalışanların bağlı olduğu departmanları tekrar etmeyecek şekilde listeler. DISTINCT ifadesi, aynı değere sahip tekrar eden satırları filtreleyerek yalnızca benzersiz departmanları getirir.
+
+-------------------------------------------------------------------------------------
+
+c. Belirli Bir Departmana Ait Çalışanları Listeleme
+
+SELECT *
+FROM Employees
+WHERE departmentid = 1;
+
+Bu sorgu, sadece IT departmanında çalışan kişilerin tüm bilgilerini getirir. WHERE departmentid = 1 koşulu, yalnızca IT departmanına ait çalışanları filtreler.
+
+-------------------------------------------------------------------------------------
+
+d. Maaşa Göre Sıralama
+
+SELECT *
+FROM Employees
+ORDER BY Salary DESC;
+
+Bu sorgu, çalışanları maaşlarına göre büyükten küçüğe sıralar. ORDER BY Salary DESC ifadesi, maaşı en yüksek olan çalışanı en üstte gösterecek şekilde sıralama yapar.
+
+-------------------------------------------------------------------------------------
+
+e. Kolonları Birleştirme (Concatenation)
+
+SELECT CONCAT(FirstName || ' ' || LastName) AS FullName 
+FROM Employees;
+
+
+Bu sorgu, FirstName (Adı) ve LastName (Soyadı) sütunlarını birleştirerek yeni bir FullName (Tam Ad) sütunu oluşturur. CONCAT fonksiyonu, iki metin değerini birleştirerek yeni bir sonuç döndürür.
+
+
