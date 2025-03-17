@@ -1,0 +1,67 @@
+-- SORU 1
+--invoice tablosunda billing_state column unda kaç tane null karakter varsa bu sorgu ile onları getirebildim
+SELECT count(*) FROM invoice WHERE billing_state IS NULL;
+
+
+
+-- SORU2
+
+-- "total2" sütununu ekliyoruz
+ALTER TABLE invoice
+ADD COLUMN total2 DECIMAL;
+
+-- "total" sütunundaki değerleri 2 ile çarpıp "total2" ye aktarıyoruz
+UPDATE invoice
+SET total2 = total * 2;
+
+-- Güncellenmiş tabloyu sorguluyoruz
+select * from invoice
+
+--Güncellenmiş tabloyu azalan sıraya göre sıralar
+SELECT
+  total,
+  total2
+FROM
+  invoice
+ORDER BY
+  total DESC,
+  total2 DESC;
+
+-- SORU 3
+-- SORU 1
+SELECT count(*) FROM invoice WHERE billing_state IS NULL;
+
+
+-- SORU2
+-- "total2" sütununu ekliyoruz
+ALTER TABLE invoice
+ADD COLUMN total2 DECIMAL;
+
+-- "total" sütunundaki değerleri 2 ile çarpıp "total2" ye aktarıyoruz
+UPDATE invoice
+SET total2 = total * 2;
+
+-- Güncellenmiş tabloyu sorguluyoruz
+select * from invoice
+
+--Güncellenmiş tabloyu azalan sıraya göre sıralar
+SELECT
+  total,
+  total2
+FROM
+  invoice
+ORDER BY
+  total DESC,
+  total2 DESC;
+
+-- SORU 3
+-- left ve right komutlarıyla istediğim sütunun istediğim ilk 3 ve son 4 basamaklarını sorguladım ve as komutu ile açık adres olacak şekilde extract komutlarıyla istenen aralıklara göre filtreleyip sorgumu bitirdim
+
+select 
+left(billing_address , 3) || '' || RIGHT(billing_address, 4) AS acik_address
+from invoice 
+WHERE extract (year from invoice_date)=2013 and extract(month from invoice_date)= 8
+select 
+left(billing_address , 3) || '' || RIGHT(billing_address, 4) AS acik_address
+from invoice 
+WHERE extract (year from invoice_date)=2013 and extract(month from invoice_date)= 8
